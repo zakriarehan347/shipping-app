@@ -47,10 +47,9 @@
             <p class="break-words text-[10px]">{{ $shipment->shipper_address }}</p>
         </div>
         <div class="text-right text-[10px] ml-2">
-            <p>Contact</p>
             <p>NTN# {{ $shipment->shipper_ntn ?? '—' }}</p>
             <p>CNIC# {{ $shipment->shipper_cnic ?? '—' }}</p>
-            @if($shipment->shipper_phone)<p>{{ $shipment->shipper_phone }}</p>@endif
+            <p>Contact# {{ $shipment->shipper_phone ?? '—' }}</p>
         </div>
     </div>
 
@@ -61,9 +60,8 @@
             <p class="break-words text-[10px]">{{ $shipment->receiver_address }}</p>
         </div>
         <div class="text-right text-[10px] ml-2">
-            <p>Contact</p>
             <p>NTN# {{ $shipment->receiver_ntn ?? '—' }}</p>
-            <p>{{ $shipment->receiver_phone ?? '—' }}</p>
+            <p>Contact# {{ $shipment->receiver_phone ?? '—' }}</p>
         </div>
     </div>
 
