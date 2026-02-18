@@ -23,7 +23,6 @@ class ShipmentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'waybill_number' => ['required', 'string', 'max:255', Rule::unique('shipments', 'waybill_number')],
             'courier_service' => ['nullable', 'string', 'max:100'],
             'shipper_name' => ['required', 'string', 'max:255'],
             'shipper_address' => ['required', 'string'],
@@ -36,8 +35,12 @@ class ShipmentController extends Controller
             'quantity' => ['required', 'integer', 'min:1'],
             'weight' => ['required', 'numeric', 'min:0'],
             'price' => ['required', 'numeric', 'min:0'],
+            'value' => ['nullable', 'numeric', 'min:0'],
+            'volume' => ['nullable', 'numeric', 'min:0'],
             'shipment_date' => ['required', 'date'],
         ]);
+
+        $validated['waybill_number'] = (string) (1000011110 + ((int) Shipment::max('id') + 1));
 
         $shipment = Shipment::create($validated);
 
@@ -72,6 +75,8 @@ class ShipmentController extends Controller
             'quantity' => ['required', 'integer', 'min:1'],
             'weight' => ['required', 'numeric', 'min:0'],
             'price' => ['required', 'numeric', 'min:0'],
+            'value' => ['nullable', 'numeric', 'min:0'],
+            'volume' => ['nullable', 'numeric', 'min:0'],
             'shipment_date' => ['required', 'date'],
         ]);
 

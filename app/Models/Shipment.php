@@ -23,6 +23,8 @@ class Shipment extends Model
         'quantity',
         'weight',
         'price',
+        'value',
+        'volume',
         'shipment_date',
     ];
 
@@ -33,6 +35,8 @@ class Shipment extends Model
             'quantity' => 'integer',
             'weight' => 'decimal:2',
             'price' => 'decimal:2',
+            'value' => 'decimal:2',
+            'volume' => 'decimal:2',
         ];
     }
 }

@@ -16,14 +16,8 @@
                 <form action="{{ route('shipments.store') }}" method="POST" class="p-6 space-y-8">
                     @csrf
 
-                    {{-- Waybill, Courier, Date --}}
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        <div>
-                            <x-input-label for="waybill_number" :value="__('Waybill Number')" />
-                            <x-text-input id="waybill_number" name="waybill_number" type="text" class="mt-1 block w-full"
-                                :value="old('waybill_number')" required autofocus />
-                            <x-input-error :messages="$errors->get('waybill_number')" class="mt-1" />
-                        </div>
+                    {{-- Waybill is auto-generated from 1000011111. Courier, Date --}}
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <x-input-label for="courier_service" :value="__('Courier Service')" />
                             <select id="courier_service" name="courier_service" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
@@ -127,6 +121,18 @@
                                 <x-text-input id="price" name="price" type="number" step="0.01" min="0" class="mt-1 block w-full"
                                     :value="old('price', '0')" required />
                                 <x-input-error :messages="$errors->get('price')" class="mt-1" />
+                            </div>
+                            <div>
+                                <x-input-label for="value" :value="__('Value')" />
+                                <x-text-input id="value" name="value" type="number" step="0.01" min="0" class="mt-1 block w-full"
+                                    :value="old('value', '')" />
+                                <x-input-error :messages="$errors->get('value')" class="mt-1" />
+                            </div>
+                            <div>
+                                <x-input-label for="volume" :value="__('Volume')" />
+                                <x-text-input id="volume" name="volume" type="number" step="0.01" min="0" class="mt-1 block w-full"
+                                    :value="old('volume', '')" />
+                                <x-input-error :messages="$errors->get('volume')" class="mt-1" />
                             </div>
                         </div>
                     </div>

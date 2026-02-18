@@ -36,7 +36,7 @@
                     @endif
                 </a>
                 <p class="mt-2 font-semibold text-gray-800">{{ config('app.name') }}</p>
-                <p class="text-xs text-gray-500">Global Logistics & Shipping</p>
+                <p class="text-xs text-gray-500">Syed Cargo Service</p>
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">

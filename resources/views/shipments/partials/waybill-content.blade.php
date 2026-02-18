@@ -22,11 +22,11 @@
                 @endif
                 <span class="font-bold text-sm uppercase tracking-tight">{{ config('app.name') }}</span>
             </div>
-            <p class="text-[10px]">Global Logistics & Shipping</p>
+            <p class="text-[10px]">Shop No#2, Basement 18 M-Block, Model Town Ext, Lahore</p>
         </div>
         <div class="text-right">
             @if($hasCourierLogo)
-                <img src="{{ asset($courierLogoPath) }}" alt="{{ $courierName }}" class="ml-auto shrink-0 object-contain" style="width: 56px; height: 28px; max-width: 56px; max-height: 28px; object-fit: contain;" />
+                <img src="{{ asset($courierLogoPath) }}" alt="{{ $courierName }}" class="ml-auto shrink-0 object-contain" style="width: 120px; height: 48px; max-width: 120px; max-height: 48px; object-fit: contain;" />
             @else
                 <span class="font-bold text-sm">{{ $courierName }}</span>
             @endif
@@ -73,7 +73,7 @@
         <div class="grid grid-cols-[1fr_1fr_50px] gap-1 text-[10px]">
             <span>{{ $shipment->quantity }} {{ $shipment->item_description }}</span>
             <span>—</span>
-            <span class="text-right">—</span>
+            <span class="text-right">{{ $shipment->value !== null ? number_format($shipment->value, 2) : '—' }}</span>
         </div>
     </div>
 
@@ -85,7 +85,7 @@
     <div class="flex justify-between border-b border-black py-0.5 mb-1">
         <div>
             <p class="font-bold text-[10px] mb-0.5">Pices | Volume | Weight (UOM)</p>
-            <p class="text-[10px]">{{ $shipment->quantity }} | 0.00 | {{ number_format($shipment->weight, 2) }}</p>
+            <p class="text-[10px]">{{ $shipment->quantity }} | {{ $shipment->volume !== null ? number_format($shipment->volume, 2) : '0.00' }} | {{ number_format($shipment->weight, 2) }}</p>
         </div>
         <div class="text-right">
             <p class="font-bold text-[10px] mb-0.5">Price</p>
@@ -97,7 +97,7 @@
         <div class="grid grid-cols-3 gap-2 text-[10px] w-2/3">
             <span class="font-bold">Name(capital)</span>
             <span class="font-bold">Signature</span>
-            <span class="font-bold">Date</span>
+            <span class="font-bold">Date {{ now()->format('d M, Y') }}</span>
         </div>
         <div class="text-right text-[10px]">{{ $shipment->shipment_date->format('Y-m-d') }}</div>
     </div>

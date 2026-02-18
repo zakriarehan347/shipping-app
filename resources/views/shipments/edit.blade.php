@@ -21,8 +21,8 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div>
                             <x-input-label for="waybill_number" :value="__('Waybill Number')" />
-                            <x-text-input id="waybill_number" name="waybill_number" type="text" class="mt-1 block w-full"
-                                :value="old('waybill_number', $shipment->waybill_number)" required autofocus />
+                            <x-text-input id="waybill_number" name="waybill_number" type="text" class="mt-1 block w-full bg-gray-100 cursor-not-allowed"
+                                :value="old('waybill_number', $shipment->waybill_number)" required readonly />
                             <x-input-error :messages="$errors->get('waybill_number')" class="mt-1" />
                         </div>
                         <div>
@@ -128,6 +128,18 @@
                                 <x-text-input id="price" name="price" type="number" step="0.01" min="0" class="mt-1 block w-full"
                                     :value="old('price', $shipment->price)" required />
                                 <x-input-error :messages="$errors->get('price')" class="mt-1" />
+                            </div>
+                            <div>
+                                <x-input-label for="value" :value="__('Value')" />
+                                <x-text-input id="value" name="value" type="number" step="0.01" min="0" class="mt-1 block w-full"
+                                    :value="old('value', $shipment->value)" />
+                                <x-input-error :messages="$errors->get('value')" class="mt-1" />
+                            </div>
+                            <div>
+                                <x-input-label for="volume" :value="__('Volume')" />
+                                <x-text-input id="volume" name="volume" type="number" step="0.01" min="0" class="mt-1 block w-full"
+                                    :value="old('volume', $shipment->volume)" />
+                                <x-input-error :messages="$errors->get('volume')" class="mt-1" />
                             </div>
                         </div>
                     </div>
