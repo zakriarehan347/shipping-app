@@ -21,6 +21,7 @@
                     <div class="w-10 h-10 shrink-0 rounded-full bg-amber-400 border-2 border-red-600 flex items-center justify-center text-red-600 font-bold text-xs">SCS</div>
                 @endif
                 <span class="font-bold text-sm uppercase tracking-tight">{{ config('app.name') }}</span>
+                <p class="text-[10px]">Global Logistics & Shipping</p>
             </div>
             <p class="text-[10px]">Shop No#2, Basement 18 M-Block, Model Town Ext, Lahore</p>
         </div>
@@ -48,6 +49,7 @@
         <div class="text-right text-[10px] ml-2">
             <p>Contact</p>
             <p>NTN# {{ $shipment->shipper_ntn ?? '—' }}</p>
+            <p>CNIC# {{ $shipment->shipper_cnic ?? '—' }}</p>
             @if($shipment->shipper_phone)<p>{{ $shipment->shipper_phone }}</p>@endif
         </div>
     </div>
@@ -60,6 +62,7 @@
         </div>
         <div class="text-right text-[10px] ml-2">
             <p>Contact</p>
+            <p>NTN# {{ $shipment->receiver_ntn ?? '—' }}</p>
             <p>{{ $shipment->receiver_phone ?? '—' }}</p>
         </div>
     </div>
@@ -73,7 +76,7 @@
         <div class="grid grid-cols-[1fr_1fr_50px] gap-1 text-[10px]">
             <span>{{ $shipment->quantity }} {{ $shipment->item_description }}</span>
             <span>—</span>
-            <span class="text-right">{{ $shipment->value !== null ? number_format($shipment->value, 2) : '—' }}</span>
+            <span class="text-right">{{ $shipment->value !== null && $shipment->value !== '' ? e($shipment->value) : '—' }}</span>
         </div>
     </div>
 

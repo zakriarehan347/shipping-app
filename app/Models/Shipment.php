@@ -16,9 +16,11 @@ class Shipment extends Model
         'shipper_address',
         'shipper_phone',
         'shipper_ntn',
+        'shipper_cnic',
         'receiver_name',
         'receiver_address',
         'receiver_phone',
+        'receiver_ntn',
         'item_description',
         'quantity',
         'weight',
@@ -35,7 +37,6 @@ class Shipment extends Model
             'quantity' => 'integer',
             'weight' => 'decimal:2',
             'price' => 'decimal:2',
-            'value' => 'decimal:2',
             'volume' => 'decimal:2',
         ];
     }

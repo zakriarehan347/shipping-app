@@ -65,6 +65,12 @@
                                         :value="old('shipper_ntn')" />
                                     <x-input-error :messages="$errors->get('shipper_ntn')" class="mt-1" />
                                 </div>
+                                <div>
+                                    <x-input-label for="shipper_cnic" :value="__('CNIC')" />
+                                    <x-text-input id="shipper_cnic" name="shipper_cnic" type="text" class="mt-1 block w-full"
+                                        :value="old('shipper_cnic')" />
+                                    <x-input-error :messages="$errors->get('shipper_cnic')" class="mt-1" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,6 +96,12 @@
                                 <x-text-input id="receiver_phone" name="receiver_phone" type="text" class="mt-1 block w-full"
                                     :value="old('receiver_phone')" />
                                 <x-input-error :messages="$errors->get('receiver_phone')" class="mt-1" />
+                            </div>
+                            <div>
+                                <x-input-label for="receiver_ntn" :value="__('NTN#')" />
+                                <x-text-input id="receiver_ntn" name="receiver_ntn" type="text" class="mt-1 block w-full"
+                                    :value="old('receiver_ntn')" />
+                                <x-input-error :messages="$errors->get('receiver_ntn')" class="mt-1" />
                             </div>
                         </div>
                     </div>
@@ -124,7 +136,7 @@
                             </div>
                             <div>
                                 <x-input-label for="value" :value="__('Value')" />
-                                <x-text-input id="value" name="value" type="number" step="0.01" min="0" class="mt-1 block w-full"
+                                <x-text-input id="value" name="value" type="text" class="mt-1 block w-full"
                                     :value="old('value', '')" />
                                 <x-input-error :messages="$errors->get('value')" class="mt-1" />
                             </div>
