@@ -20,14 +20,16 @@
                 @else
                     <div class="w-10 h-10 shrink-0 rounded-full bg-amber-400 border-2 border-red-600 flex items-center justify-center text-red-600 font-bold text-xs">SCS</div>
                 @endif
-                <span class="font-bold text-sm uppercase tracking-tight">{{ config('app.name') }}</span>
-                <p class="text-[10px]">Global Logistics & Shipping</p>
+                <div>
+                    <p class="font-bold text-sm uppercase tracking-tight">{{ config('app.name') }}</p>
+                    <p class="text-[10px]">Global Logistics & Shipping</p>
+                </div>
             </div>
             <p class="text-[10px]">Shop No#2, Basement 18 M-Block, Model Town Ext, Lahore</p>
         </div>
         <div class="text-right">
             @if($hasCourierLogo)
-                <img src="{{ asset($courierLogoPath) }}" alt="{{ $courierName }}" class="ml-auto shrink-0 object-contain" style="width: 120px; height: 48px; max-width: 120px; max-height: 48px; object-fit: contain;" />
+                <img src="{{ asset($courierLogoPath) }}" alt="{{ $courierName }}" class="ml-auto shrink-0 object-contain" style="width: 200px; height: 80px; max-width: 200px; max-height: 80px; object-fit: contain;" />
             @else
                 <span class="font-bold text-sm">{{ $courierName }}</span>
             @endif
